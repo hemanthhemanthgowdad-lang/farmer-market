@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Market</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+.navbar{
+
+    background:black;
+
+    padding:20px;
+}
+
+.navbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:20px;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.navbar a:hover{
+
+    color:yellow;
+}
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+
+            font-family: 'Poppins', sans-serif;
+
+            background-image:url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854');
+
+            background-size:cover;
+            background-position:center;
+
+            text-align:center;
+
+            color:white;
+        }
+
+        .overlay{
+            background:rgba(0,0,0,0.6);
+            min-height:100vh;
+            padding-top:30px;
+        }
+
+        h1{
+            font-size:55px;
+            margin-bottom:20px;
+        }
+
+        .farmer-img{
+
+            width:300px;
+
+            border-radius:20px;
+
+            border:5px solid white;
+        }
+
+        .crop-container{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:20px;
+
+            margin-top:30px;
+
+            flex-wrap:wrap;
+        }
+
+        .crop-container img{
+
+            width:200px;
+
+            height:150px;
+
+            border-radius:15px;
+
+            border:3px solid white;
+
+            transition:0.3s;
+        }
+
+        .crop-container img:hover{
+
+            transform:scale(1.08);
+        }
+
+   button{
+
+    width:220px;
+
+    height:55px;
+
+    font-size:20px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    transform:scale(1.08);
+}
+
+    </style>
+</head>
+
+<body>
+<div id="google_translate_element"></div>
+
+    <div class="navbar">
+
+    <a href="/">Home</a>
+
+    <a href="/add">Add Crop</a>
+
+    <a href="/view">View Crops</a>
+
+</div>
+
+    <div class="overlay">
+
+        <h1>Farmer Market System</h1>
+
+        <img class="farmer-img"
+        src="https://cdn.pixabay.com/photo/2016/11/29/04/17/farmer-1867727_1280.jpg">
+
+        <div class="crop-container">
+
+            <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc">
+
+            <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf">
+
+            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399">
+
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+
+        </div>
+
+        <br>
+
+        <a href="/add">
+            <button style="background:linear-gradient(to right, orange, red);">
+    Add Crop
+</button>
+        </a>
+
+        <br>
+
+        <a href="/view">
+           <button style="background:linear-gradient(to right, blue, purple);">
+    View Crops
+</button>
+        </a>
+
+    </div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Add Crop</title>
+
+    <style>
+
+        body{
+
+            margin:0;
+
+            padding:0;
+
+            background-image:url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854');
+
+            background-size:cover;
+
+            font-family:Arial;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            height:100vh;
+        }
+
+        .form-box{
+
+            background:rgba(0,0,0,0.7);
+
+            padding:40px;
+
+            border-radius:20px;
+
+            color:white;
+
+            width:350px;
+
+            text-align:center;
+        }
+
+        h1{
+
+            margin-bottom:30px;
+        }
+
+        input{
+
+            width:90%;
+
+            height:40px;
+
+            margin:10px;
+
+            border:none;
+
+            border-radius:8px;
+
+            padding-left:10px;
+
+            font-size:16px;
+        }
+
+        button{
+
+            width:200px;
+
+            height:45px;
+
+            background:linear-gradient(to right, orange, red);
+
+            border:none;
+
+            color:white;
+
+            font-size:18px;
+
+            border-radius:10px;
+
+            cursor:pointer;
+        }
+
+        button:hover{
+
+            transform:scale(1.05);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="google_translate_element"></div>
+
+    <div class="form-box">
+
+        <h1>Add Crop</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input type="text"
+            name="crop_name"
+            placeholder="Enter Crop Name">
+
+            <input type="text"
+            name="quantity"
+            placeholder="Enter Quantity">
+
+            <input type="text"
+            name="price"
+            placeholder="Enter Price">
+
+            <input type="text"
+              name="farmer_name"
+              placeholder="Enter Farmer Name"
+              required>
+
+            <br><br><br>
+
+<input type="file" name="image">
+
+<br><br><br>
+
+            <button type="submit">
+                Save Crop
+            </button>
+
+        </form>
+
+    </div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+</html>

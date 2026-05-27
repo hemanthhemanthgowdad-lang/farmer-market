@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Farmer Market Login</title>
+
+<style>
+
+    #google_translate_element{
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+z-index:9999;
+
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial;
+
+    background:
+    linear-gradient(rgba(0,100,0,0.7),
+    rgba(0,100,0,0.7)),
+    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854');
+
+    background-size:cover;
+    background-position:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.title{
+    text-align:center;
+    color:white;
+    font-size:50px;
+    margin-top:20px;
+    text-shadow:2px 2px 5px black;
+}
+
+.box{
+
+    width:350px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+    box-shadow:0px 0px 20px black;
+
+}
+
+input{
+
+    width:90%;
+
+    height:45px;
+
+    margin:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding-left:10px;
+
+    font-size:16px;
+
+}
+
+button{
+
+    width:95%;
+
+    height:45px;
+
+    background:limegreen;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+button:hover{
+
+    background:green;
+
+    transform:scale(1.03);
+
+    transition:0.3s;
+
+}
+
+/* Farmer Image */
+
+.left-img{
+
+    position:absolute;
+
+    left:20px;
+
+    top:120px;
+
+}
+
+.left-img img{
+
+    width:250px;
+
+    border-radius:20px;
+
+}
+
+/* Cow Image */
+
+.right-img{
+
+    position:absolute;
+
+    right:20px;
+
+    top:120px;
+
+}
+
+.right-img img{
+
+    width:250px;
+
+    border-radius:20px;
+
+}
+
+/* Crop Images */
+
+.crop-container{
+
+    position:absolute;
+
+    bottom:20px;
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.crop-container img{
+
+    width:150px;
+
+    height:100px;
+
+    margin:10px;
+
+    border-radius:15px;
+
+    box-shadow:0px 0px 10px black;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <div id="google_translate_element"></div>
+
+<h1 class="title">
+🌾 Farmer Market 🌾
+</h1>
+
+<!-- Farmer -->
+
+<div class="left-img">
+
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+</div>
+
+<!-- Cow -->
+
+<div class="right-img">
+
+<img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a">
+
+</div>
+
+<!-- Login Box -->
+
+<div class="box">
+
+<h2 style="color:white;">
+Login
+</h2>
+
+<form method="POST">
+
+<input type="email"
+name="email"
+placeholder="Enter Email"
+required>
+
+<input type="password"
+name="password"
+placeholder="Enter Password"
+required>
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+</div>
+
+<!-- Crops -->
+
+<div class="crop-container">
+
+<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c">
+
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+</body>
+
+</html>

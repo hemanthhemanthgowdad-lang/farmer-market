@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Price Prediction</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:linear-gradient(green,darkgreen);
+    text-align:center;
+    color:white;
+    padding-top:100px;
+}
+
+.box{
+    background:white;
+    color:black;
+    width:400px;
+    margin:auto;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0px 0px 15px black;
+}
+
+h1{
+    color:green;
+}
+
+.price{
+    font-size:40px;
+    color:orange;
+    font-weight:bold;
+}
+
+a{
+    text-decoration:none;
+    background:green;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div id="google_translate_element"></div>
+
+<div class="box">
+
+<h1>🌾 AI Crop Price Prediction</h1>
+
+<p>Tomorrow Predicted Price:</p>
+
+<div class="price">
+
+₹ {{ price }}
+
+</div>
+
+<br><br>
+
+<a href="/dashboard">
+Back
+</a>
+
+</div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+
+</html>

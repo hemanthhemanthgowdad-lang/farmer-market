@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Order Success</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family:Arial;
+            background:linear-gradient(green,darkgreen);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+        }
+
+        .success-box{
+            background:white;
+            padding:50px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0px 0px 30px black;
+            animation:zoom 1s ease;
+        }
+
+        h1{
+            color:green;
+            font-size:40px;
+        }
+
+        p{
+            font-size:20px;
+        }
+
+        .tick{
+            font-size:90px;
+            color:green;
+            animation:blast 1s infinite alternate;
+        }
+
+        a{
+            text-decoration:none;
+            background:orange;
+            color:white;
+            padding:12px 25px;
+            border-radius:8px;
+            display:inline-block;
+            margin-top:20px;
+            font-size:18px;
+        }
+
+        @keyframes zoom{
+
+            from{
+                transform:scale(0);
+            }
+
+            to{
+                transform:scale(1);
+            }
+        }
+
+        @keyframes blast{
+
+            from{
+                transform:scale(1);
+            }
+
+            to{
+                transform:scale(1.2);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="google_translate_element"></div>
+
+<div class="success-box">
+
+    <div class="tick">
+        ✔
+    </div>
+
+    <h1>Order Placed Successfully!</h1>
+
+    <p>Your order has been sent to farmer 🌾</p>
+
+    <a href="/customer">
+        Back To Products
+    </a>
+
+</div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+
+</html>

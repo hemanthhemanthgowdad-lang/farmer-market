@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Order</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:linear-gradient(green, darkgreen);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+
+        .box{
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            width:350px;
+            text-align:center;
+            box-shadow:0px 0px 20px gray;
+        }
+
+        h1{
+            color:green;
+        }
+
+        input, select{
+            width:95%;
+            height:45px;
+            margin:10px 0;
+            padding-left:10px;
+            border:1px solid gray;
+            border-radius:5px;
+            font-size:16px;
+        }
+
+        button{
+            background:orange;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:darkorange;
+        }
+
+        .amount-box{
+            margin-top:15px;
+            background:#f1fff1;
+            padding:10px;
+            border-radius:8px;
+            color:green;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div id="google_translate_element"></div>
+<div class="box">
+
+    <h1>Order {{ crop[1] }}</h1>
+
+    <form method="POST">
+
+        <input type="text"
+        name="customer_name"
+        placeholder="Enter Name"
+        required>
+
+        <input type="text"
+        name="phone"
+        placeholder="Enter Phone Number"
+        required>
+
+        <input type="text"
+name="address"
+id="address"
+placeholder="Enter Delivery Address"
+required>
+
+<br><br>
+
+<button type="button"
+onclick="getLocation()">
+📍 Use My Live Location
+</button>
+
+<br><br>
+
+        <input type="number"
+        id="quantity"
+        name="quantity"
+        placeholder="Enter Quantity"
+        onkeyup="calculateAmount()"
+        required>
+
+        <select
+        name="unit"
+        id="unit"
+        onchange="calculateAmount()">
+
+            <option value="kg">KG</option>
+
+            <option value="ton">TON</option>
+
+        </select>
+
+        <div class="amount-box">
+            Total Amount: ₹ <span id="total">0</span>
+        </div>
+
+        <select name="payment_method" required>
+
+            <option value="">Select Payment Method</option>
+
+            <option>Cash on Delivery</option>
+
+            <option>UPI</option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+function calculateAmount() {
+
+    var quantity = Number(document.getElementById("quantity").value);
+
+    var unit = document.getElementById("unit").value;
+
+    var crop_quantity = "{{ crop[2] }}";
+
+    var crop_price = Number("{{ crop[3] }}");
+
+    var only_number = parseInt(crop_quantity);
+
+    var price_per_kg = crop_price / only_number;
+
+    var total = 0;
+
+    if(unit == "kg") {
+
+        total = quantity * price_per_kg;
+
+    }
+
+    else if(unit == "ton") {
+
+        total = quantity * price_per_kg * 1000;
+
+    }
+
+    document.getElementById("total").innerHTML = Math.round(total);
+
+}
+
+</script>
+<script>
+
+function getLocation() {
+
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+
+        alert("Geolocation not supported");
+
+    }
+
+}
+
+function showPosition(position) {
+
+    let lat = position.coords.latitude;
+
+    let lon = position.coords.longitude;
+
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        let city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            "Unknown Location";
+
+        document.getElementById("address").value = city;
+
+    });
+
+}
+
+</script>
+</body>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</html>

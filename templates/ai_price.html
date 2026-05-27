@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Price Prediction</title>
+
+<style>
+
+body{
+
+    margin:0;
+    padding:0;
+    font-family:Arial;
+    background:linear-gradient(to right,#38ef7d,#11998e);
+
+}
+
+.box{
+
+    width:450px;
+    background:white;
+    margin:120px auto;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0px 0px 20px black;
+
+}
+
+h1{
+
+    color:green;
+    font-size:42px;
+
+}
+
+.crop{
+
+    font-size:45px;
+    color:darkred;
+    font-weight:bold;
+
+}
+
+.price{
+
+    font-size:50px;
+    color:orange;
+    margin-top:20px;
+
+}
+
+.btn{
+
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 30px;
+    background:green;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:22px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="google_translate_element"></div>
+<div class="box">
+
+<h1>🌾 Highest Price Crop Tomorrow</h1>
+
+<div class="crop">
+
+{{ crop }}
+
+</div>
+
+<div class="price">
+
+₹ {{ price }}
+
+</div>
+
+<a href="/dashboard" class="btn">
+
+Back
+
+</a>
+
+</div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+
+</html>

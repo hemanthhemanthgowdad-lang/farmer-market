@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Farmer Customer Chat</title>
+
+<style>
+
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    background:#8fd36b;
+
+}
+
+.chat-box{
+
+    width:500px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    box-shadow:0px 0px 15px gray;
+
+}
+
+.messages{
+
+    height:400px;
+
+    overflow-y:auto;
+
+    border:1px solid #ccc;
+
+    padding:10px;
+
+    margin-bottom:20px;
+
+    border-radius:10px;
+
+    background:#f5f5f5;
+
+}
+
+.message{
+
+    background:#dfffdc;
+
+    padding:10px;
+
+    margin:10px 0;
+
+    border-radius:10px;
+
+}
+
+form input{
+
+    width:95%;
+
+    padding:12px;
+
+    margin-top:10px;
+
+    border-radius:10px;
+
+    border:1px solid gray;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:15px;
+
+    background:green;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="google_translate_element"></div>
+<div class="chat-box">
+
+<h1 align="center">
+💬 Farmer Customer Chat
+</h1>
+
+<div class="messages">
+
+{% for chat in chats %}
+
+<div class="message">
+
+<b>{{chat[1]}}</b> → <b>{{chat[2]}}</b><br><br>
+
+{{chat[3]}}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<form action="/send_message" method="POST">
+
+<input type="text"
+name="sender"
+placeholder="Your Name"
+required>
+
+<input type="text"
+name="receiver"
+placeholder="Receiver Name"
+required>
+
+<input type="text"
+name="message"
+placeholder="Type Message"
+required>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Farmer Assistant</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(rgba(0,100,0,0.6),
+    rgba(0,100,0,0.6)),
+    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854');
+
+    background-size:cover;
+    background-position:center;
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* MAIN CHAT */
+
+.chat-container{
+
+    width:95%;
+    max-width:500px;
+
+    height:90vh;
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:0px 0px 25px black;
+}
+
+/* HEADER */
+
+.chat-header{
+
+    background:green;
+
+    color:white;
+
+    padding:20px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+}
+
+/* CHAT AREA */
+
+.chat-box{
+
+    flex:1;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+    background:#f5f5f5;
+}
+
+/* BOT MESSAGE */
+
+.bot-message{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    width:fit-content;
+
+    max-width:80%;
+
+    box-shadow:0px 0px 5px gray;
+}
+
+/* USER MESSAGE */
+
+.user-message{
+
+    background:green;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    margin-left:auto;
+
+    width:fit-content;
+
+    max-width:80%;
+}
+
+/* INPUT AREA */
+
+.chat-input{
+
+    display:flex;
+
+    padding:15px;
+
+    background:white;
+
+    border-top:1px solid #ddd;
+}
+
+.chat-input input{
+
+    flex:1;
+
+    padding:15px;
+
+    border-radius:30px;
+
+    border:1px solid gray;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+.chat-input button{
+
+    margin-left:10px;
+
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:green;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+.chat-input button:hover{
+
+    background:darkgreen;
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="google_translate_element"></div>
+<div class="chat-container">
+
+<div class="chat-header">
+🤖 AI Farmer Assistant
+</div>
+
+<div class="chat-box" id="chat-box">
+
+<div class="bot-message">
+Hello 👋<br>
+I am your AI Farmer Assistant.<br>
+Ask me anything about crops, farming, weather, prices, fertilizers or irrigation.
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input type="text"
+id="user-input"
+placeholder="Type your question...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+    let input = document.getElementById("user-input");
+
+    let message = input.value;
+
+    if(message.trim() == ""){
+
+        return;
+    }
+
+    let chatBox = document.getElementById("chat-box");
+
+    // USER MESSAGE
+
+    let userDiv = document.createElement("div");
+
+    userDiv.className = "user-message";
+
+    userDiv.innerHTML = message;
+
+    chatBox.appendChild(userDiv);
+
+    // BOT REPLY
+
+    let botReply = "";
+
+    let msg = message.toLowerCase();
+
+    if(msg.includes("rice")){
+
+        botReply = "Rice grows well in wet and humid climate.";
+
+    }
+
+    else if(msg.includes("weather")){
+
+        botReply = "You can check live weather updates in dashboard.";
+
+    }
+
+    else if(msg.includes("price")){
+
+        botReply = "AI Prediction shows tomorrow highest crop prices.";
+
+    }
+
+    else if(msg.includes("fertilizer")){
+
+        botReply = "Organic fertilizers improve soil fertility naturally.";
+
+    }
+
+    else if(msg.includes("water")){
+
+        botReply = "Drip irrigation helps save water.";
+
+    }
+
+    else if(msg.includes("tomato")){
+
+        botReply = "Tomato crops need sunlight and regular watering.";
+
+    }
+
+    else if(msg.includes("hello") || msg.includes("hi")){
+
+        botReply = "Hello 👋 How can I help you today?";
+
+    }
+
+    else if(msg.includes("market")){
+
+        botReply = "Farmer Market helps farmers sell directly to customers.";
+
+    }
+
+    else{
+
+        botReply = "I am learning 🤖 Please ask farming related questions.";
+
+    }
+
+    setTimeout(() => {
+
+        let botDiv = document.createElement("div");
+
+        botDiv.className = "bot-message";
+
+        botDiv.innerHTML = botReply;
+
+        chatBox.appendChild(botDiv);
+
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+    }, 600);
+
+    input.value = "";
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+</script>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+pageLanguage: 'en',
+includedLanguages: 'en,ta,hi,kn,te,ml',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+</body>
+
+</html>
